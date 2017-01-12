@@ -1,3 +1,8 @@
+## v0.1.0
+* API docs fix (@p2227)
+* Dependency update to webpack >=2.2.0-rc.0 (@RomanGotsiy)
+* Bump to minor version
+
 ## v0.0.4
 * Move sample loaders to `optionalDependencies` (@at0g)
 
