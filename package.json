@@ -4,7 +4,7 @@
   "author": "James Andersen @jandersen78",
   "description": "Replace string tokens in the contents of a file.",
   "peerDependencies": {
-    "webpack": "^1.4.2"
+    "webpack": "^1.4.2 || >=2.2.0-rc.0"
   },
   "dependencies": {
     "async": "~0.2.10",
