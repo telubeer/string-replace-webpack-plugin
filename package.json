@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "mocha": "^2.2.1",
-    "webpack": "*"
+    "webpack": "^2.2.1"
   },
   "optionalDependencies": {
     "css-loader": "^0.9.1",
