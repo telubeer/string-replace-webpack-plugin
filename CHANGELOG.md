@@ -1,3 +1,6 @@
+## v0.1.1
+* Don't save options on the compiler for Webpack 2.2 compatibility (@CntChen)
+
 ## v0.1.0
 * API docs fix (@p2227)
 * Dependency update to webpack >=2.2.0-rc.0 (@RomanGotsiy)
