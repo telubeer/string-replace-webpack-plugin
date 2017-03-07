@@ -3,7 +3,6 @@
  */
 var assert = require("assert");
 var StringReplacePlugin = require("./index.js");
-var mockConfig = { options: {}, emitWarning: console.log };
 
 describe('StringReplacePlugin', function(){
     describe('#replace()', function(){
@@ -62,7 +61,19 @@ describe('StringReplacePlugin', function(){
                 }]
             },
             id = null,
-            query = null;
+            query = null,
+            replaced = null;
+
+        var callback = function() {
+            return function(_, source) {
+                replaced = source;
+            };
+        };
+        var mockConfig = {
+            options: {},
+            emitWarning: console.log,
+            async: callback
+        };
 
         beforeEach(function(){
             // runs before each test in this block
@@ -84,10 +95,10 @@ describe('StringReplacePlugin', function(){
         it('should replace strings in source', function(){
             plugin.apply(mockConfig);
             mockConfig.query = query;
-            var replaced = loader.call(mockConfig, "some string");
+            loader.call(mockConfig, "some string");
             assert(replaced === "some string", "doesn't modify when there are no matches");
 
-            replaced = loader.call(mockConfig, "some <!-- @secret stuff --> string");
+            loader.call(mockConfig, "some <!-- @secret stuff --> string");
             assert.equal(replaced, "some replaced ==>stuff<== string", "replaces matches");
         });
 
@@ -111,10 +122,10 @@ describe('StringReplacePlugin', function(){
 
             mockConfig.query = query;
 
-            var replaced = loader.call(mockConfig, "some string");
+            loader.call(mockConfig, "some string");
             assert(replaced === "some string", "doesn't modify when there are no matches");
 
-            replaced = loader.call(mockConfig, "some <!-- @secret stuff --> string");
+            loader.call(mockConfig, "some <!-- @secret stuff --> string");
             assert.equal(replaced, "some replaced ==>stuff<== string", "replaces matches");
         });
     })
