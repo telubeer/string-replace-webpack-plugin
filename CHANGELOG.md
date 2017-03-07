@@ -1,4 +1,7 @@
-## v0.1.1
+## v0.1.3
+* Preserve source map after replacement (@rnons)
+
+## v0.1.2
 * Don't save options on the compiler for Webpack 2.2 compatibility (@CntChen)
 
 ## v0.1.0
