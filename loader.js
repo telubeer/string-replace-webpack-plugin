@@ -7,7 +7,7 @@ var StringReplacePlugin = require('./index.js');
 
 module.exports = function(source, map) {
     var callback = this.async();
-    var id = loaderUtils.parseQuery(this.query).id;
+    var id = (loaderUtils.getOptions(this) || {}).id;
 
     var stringReplaceOptions = StringReplacePlugin.REPLACE_OPTIONS;
     if(!stringReplaceOptions.hasOwnProperty(id)) {
